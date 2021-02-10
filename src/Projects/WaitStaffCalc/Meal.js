@@ -28,7 +28,7 @@ const {price, taxRate, tipPerc} = inputs
             <input type='number' name='tipPerc' value={tipPerc} onChange={(e) => handleChange(e)} />
             <button onClick={handleClick}>Submit</button>
             <div className='total'>
-                {props.total}
+                ${props.total}
             </div>
 
             </div>
