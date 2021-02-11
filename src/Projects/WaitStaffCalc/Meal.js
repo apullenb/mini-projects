@@ -15,6 +15,12 @@ const {price, taxRate, tipPerc} = inputs
 
   const handleClick = () => {
       props.calc(inputs)
+    setInputs({
+        price: 0,
+        taxRate: 0,
+        tipPerc: 0,
+    })
+      
   }
 
     
@@ -32,10 +38,7 @@ const {price, taxRate, tipPerc} = inputs
             %<input type='number' name='tipPerc' value={tipPerc} onChange={(e) => handleChange(e)} />
             </div>
             <button onClick={handleClick}>Submit</button>
-            <div className='total'>
-              <Summery total={props.total} sub={props.sub}/>
-            </div>
-
+          
             
             
         </div>

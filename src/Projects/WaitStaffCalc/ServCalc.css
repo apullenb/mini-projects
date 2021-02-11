@@ -1,0 +1,30 @@
+
+.component {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch;
+    
+}
+
+.box {
+display: flex;
+flex-direction: column;
+border: 1px solid gray;
+margin: 18px 4px;
+
+
+}
+
+.title {
+background-color: rgb(1, 104, 117);
+text-align: center;
+padding: 4px calc(2px + 2vmin);
+color: white;
+}
+
+.body {
+    padding: 1px 10px;
+}
