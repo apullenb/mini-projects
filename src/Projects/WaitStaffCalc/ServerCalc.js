@@ -3,9 +3,10 @@ import Meal from './Meal'
 
 function Main() {
 // const [meal, setMeal] = useState('')
-// const [tip, setTip] = useState('')
-// const [tax, setTax] = useState('')
+
 const [total, setTotal] = useState('')
+const [subTotal, setsubTotal] = useState('')
+
 
 
 
@@ -13,8 +14,9 @@ function calculate(input) {
  const meal = parseInt(input.price)   
     const tax = parseInt(input.taxRate) * (meal * .01)
     const tip = parseInt(input.tipPerc) * (meal * .01)
-  setTotal(meal + tip + tax)
-  console.log(meal, tip, tax, total)
+  setTotal(tip + tax + meal)
+    setsubTotal(meal + tax)
+  console.log(meal, tip, tax, total, subTotal)
 }
 
 
@@ -23,9 +25,9 @@ function calculate(input) {
     return (
         <div>
             <header>
-                <h2>WaitStaff Calculator</h2>
+                <h2>Restaurant Server Earnings Calculator</h2>
             </header>
-            <Meal calc ={calculate} total={total}/>
+            <Meal calc ={calculate} total={total} sub={subTotal}/>
         </div>
     )
 }

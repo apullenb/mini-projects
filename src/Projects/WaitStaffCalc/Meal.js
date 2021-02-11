@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Summery from './Summery'
 
 function Meal(props) {
     const [inputs, setInputs]= useState({
@@ -16,22 +17,26 @@ const {price, taxRate, tipPerc} = inputs
       props.calc(inputs)
   }
 
+    
     return (
         <div className='box'>
             <div className='title'>
-                <h4>Enter the Meal Details:</h4>
+                <h3>Enter the Meal Details:</h3>
             </div>
             <div className='body'>
-                Base Meal Price:
-            <input type='number' name='price' value={price} onChange={(e) => handleChange(e)}/>
-            <input type='number' name='taxRate' value={taxRate} onChange={(e) => handleChange(e)} />
-            <input type='number' name='tipPerc' value={tipPerc} onChange={(e) => handleChange(e)} />
+                <h4>Base Meal Price: </h4>
+            $<input type='number' name='price' value={price} onChange={(e) => handleChange(e)}/>
+            <h4>Tax Rate:</h4>
+            %<input type='number' name='taxRate' value={taxRate} onChange={(e) => handleChange(e)} />
+            <h4>Tip Percentage:</h4>
+            %<input type='number' name='tipPerc' value={tipPerc} onChange={(e) => handleChange(e)} />
+            </div>
             <button onClick={handleClick}>Submit</button>
             <div className='total'>
-                ${props.total}
+              <Summery total={props.total} sub={props.sub}/>
             </div>
 
-            </div>
+            
             
         </div>
     )
