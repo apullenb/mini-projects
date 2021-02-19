@@ -34,3 +34,7 @@ color: white;
 input {
     width: 35%;
 }
+
+.hide {
+    display: none;
+}

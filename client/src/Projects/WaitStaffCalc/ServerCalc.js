@@ -10,9 +10,12 @@ function Main() {
 const [total, setTotal] = useState('')
 const [subTotal, setsubTotal] = useState('')
 const [tipAmt, setTipAmt] = useState('')
+const [show, setShow]= useState('hide')
 
 
-
+const click = (e) => {
+show === 'hide' ? setShow('expand') : setShow('hide')
+}
 
 
 function calculate(input) {
@@ -54,6 +57,8 @@ const checkCust = () => {
 
     return (
         <div>
+            <button onClick = {(e)=>click(e)}>Server Earnings Calculator</button>
+            <div className={show}>
             <header>
                 <h2>Restaurant Server Earnings Calculator</h2>
             </header>
@@ -66,6 +71,7 @@ const checkCust = () => {
               <Earnings checkTips={checkTips} checkCust={checkCust} />
             </div>
 </section>
+        </div>
         </div>
     )
 }
