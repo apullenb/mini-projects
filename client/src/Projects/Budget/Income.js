@@ -1,14 +1,20 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Income() {
+
+  const income = {
+    src: [],
+    amt: []
+    }
+  
 
     const [show, setShow] =useState('hide')
     const [inputs, setInputs] = useState({
         source: "",
         amount: "",
       });
-    
+   
       const { source, amount } = inputs;
 
       const onChange = (e) =>
@@ -16,9 +22,25 @@ function Income() {
 
       const onSubmit = (e) => {
           e.preventDefault();
-          localStorage.setItem('source', source)
-          localStorage.setItem('amount', amount)
+          income.src.push(source)
+          income.amt.push(amount)
+          localStorage.setItem(source, )
+           getIncome()
+          setShow('hide')
+          setInputs({
+            source: "",
+            amount: "",
+          })
       }
+
+      function getIncome() {
+        localStorage.getItem('income')
+       
+      }
+
+useEffect(() => {
+  getIncome()
+}, [])
 
       const click = (e) => {
         show === 'hide' ? setShow('expand') : setShow('hide')
@@ -26,6 +48,14 @@ function Income() {
 
     return (
         <div>
+          <section className='box'>
+            <div className='title'>
+            <h3>Expected Income</h3>
+            </div>
+        <div className='body'>
+      {/* <h4>Source: {income.source} | Amount: ${income.amount}</h4> */}
+        </div>
+          </section>
             <button onClick = {(e)=>click(e)}>+Income</button>
         <div className={show} style={{
             border: "1px solid gray",
